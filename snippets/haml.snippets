@@ -1,5 +1,5 @@
 snippet abtn
-	%a.btn{:href => "${1:#}"} ${2:Text}
+	%a.btn.btn-default{:href => "${1:#}"} ${2:Text}
 
 snippet abtnblock
 	%a.btn.btn-block{:href => "${1:#}"} ${2:Text}
@@ -10,20 +10,16 @@ snippet abtndanger
 snippet abtninfo
 	%a.btn.btn-info{:href => "${1:#}"} ${2:Text}
 
-snippet abtninverse
-	%a.btn.btn-inverse{:href => "${1:#}"} ${2:Text}
-
 snippet abtnlarge
-	%a.btn.btn-large{:href => "${1:#}"} ${2:Text}
-
+	%a.btn.btn-default.btn-lg{:href => "${1:#}"} ${2:Text}
 snippet abtnmini
-	%a.btn.btn-mini{:href => "${1:#}"} ${2:Text}
+	%a.btn.btn-default.btn-sm{:href => "${1:#}"} ${2:Text}
 
 snippet abtnprimary
 	%a.btn.btn-primary{:href => "${1:#}"} ${2:Text}
 
 snippet abtnsmall
-	%a.btn.btn-small{:href => "${1:#}"} ${2:Text}
+	%a.btn.btn-default.btn-sm{:href => "${1:#}"} ${2:Text}
 
 snippet abtnsuccess
 	%a.btn.btn-success{:href => "${1:#}"} ${2:Text}
@@ -32,10 +28,11 @@ snippet abtnwarning
 	%a.btn.btn-warning{:href => "${1:#}"} ${2:Text}
 
 snippet aclose
-	%a.close{:href => "#"} &times;
+	%button.close{:type => "button"}
+	  %span{"aria-hidden" => "true"} ×
 
 snippet adisabled
-	%a.btn.disabled{:href => "#"} ${1:Primary link}
+	%a.btn.btn-default{:href => "#", disabled: "disabled"} ${1:Primary link}
 
 snippet alert
 	.alert
@@ -50,17 +47,24 @@ snippet alertblock
 	  ${2:Best check yo self, you're not...}
 
 snippet alerterror
-	.alert.alert-error
-	  ${1:...}
+	.alert.alert-danger
+	  %button.close{:type => "button", "data-dismiss" => "alert"} &times;
+	  %strong ${1:Warning!}
+	  ${2:Best check yo self, you're not looking too good.}
 
 
 snippet alertinfo
 	.alert.alert-info
-	  ${1:...}
+	  %button.close{:type => "button", "data-dismiss" => "alert"} &times;
+	  %strong ${1:Warning!}
+	  ${2:Best check yo self, you're not looking too good.}
 
 
 snippet alertsuccess
 	.alert.alert-success
+	  %button.close{:type => "button", "data-dismiss" => "alert"} &times;
+	  %strong ${1:Warning!}
+	  ${2:Best check yo self, you're not looking too good.}
 	  ${1:...}
 
 
@@ -86,27 +90,28 @@ snippet breadcrumb
 	%ul.breadcrumb
 	  %li
 	    %a{:href => "${1:#}"} ${2:Home}
-	    %span.divider /
+	    %span.divider
 	  %li
 	    %a{:href => "${3:#}"} ${4:Library}
-	    %span.divider /
+	    %span.divider
 	  %li.active ${5:Data}
 
 snippet btn
-	%button.btn{:type => "button"} ${1:Default}
+	%button..btn-default{:type => "button"} ${1:Default}
+
 
 snippet btnblock
-	%button.btn.btn-large.btn-block{:type => "button"} ${1:Block level button}
+	%button.btn.btn-default.btn-lg.btn-block{:type => "button"} ${1:Block level button}
 
 snippet btndanger
 	%button.btn.btn-danger{:type => "button"} ${1:Default}
 
 snippet btndisabled
-	%button.btn.disabled{:type => "button", :disabled => "disabled"} ${1:Primary button}
+	%button.btn{:type => "button", :disabled => "disabled"} ${1:Primary button}
 
 snippet btndropdown
 	.btn-group
-	  %a.btn.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
+	  %a.btn.btn-default.dropdown-toggle{'data-toggle' => "dropdown", :href => "#"}
 	    ${1:Action}
 	    %span.caret
 	  %ul.dropdown-menu
@@ -114,16 +119,16 @@ snippet btndropdown
 
 snippet btndropdownsplit
 	.btn-group
-	  %button.btn ${1:Action}
-	  %button.btn.dropdown-toggle{'data-toggle' => "dropdown"}
+	  %button.btn.btn-default ${1:Action}
+	  %button.btn.btn-default.dropdown-toggle{'data-toggle' => "dropdown"}
 	    %span.caret
 	  %ul.dropdown-menu
 	    ${2:<!-- dropdown menu links -->}
 
 snippet btndropup
 	.btn-group.dropup
-	  %button.btn ${1:Dropup}
-	  %button.btn.dropdown-toggle{"data-toggle" => "dropdown"}
+	  %button.btn.btn-default ${1:Dropup}
+	  %button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown"}
 	    %span.caret
 	  %ul.dropdown-menu
 	    ${2:<!-- dropdown menu links -->}
@@ -131,13 +136,10 @@ snippet btndropup
 
 snippet btngroup
 	.btn-group
-	  %button.btn ${1:1}
-	  %button.btn ${2:2}
-	  %button.btn ${3:3}
+	  %button.btn.btn-default ${1:1}
+	  %button.btn.btn-default ${2:2}
+	  %button.btn.btn-default ${3:3}
 
-snippet btngroupvertical
-	.btn-group.btn-group-vertical
-	  ${1:...}
 
 snippet btninfo
 	%button.btn.btn-info{:type => "button"} ${1:Default}
@@ -146,16 +148,15 @@ snippet btninverse
 	%button.btn.btn-inverse{:type => "button"} ${1:Default}
 
 snippet btnlarge
-	%button.btn.btn-large{:type => "button"} ${1:Default}
+	%button.btn.btn-default.btn-lg{:type => "button"} ${1:Default}
 
-snippet btnlink
+
 	%button.btn.btn-link{:type => "button"} ${1:Default}
 
 snippet btnmini
-	%button.btn.btn-mini{:type => "button"} ${1:Default}
+	%button.btn.btn-default.btn-xm{:type => "button"} ${1:Default}
 
 snippet btnprimary
-	%button.btn.btn-primary{:type => "button"} ${1:Default}
 
 snippet btnsmall
 	%button.btn.btn-small{:type => "button"} ${1:Default}
@@ -199,7 +200,7 @@ snippet dlhorizontal
 snippet dropdownmenu
 	.dropdown
 	  <!-- Link or button to toggle dropdown -->
-	  %ul.dropdown-menu{:role => "menu", :aria-labelledby => "dLabel"}
+	  %ul.dropdown-menu{:role => "menu", 'aria-labelledby' => "dLabel"}
 	    %li
 	      %a{:tabindex => "-1", :href => "#"} ${1:Action}
 	    %li
@@ -211,16 +212,22 @@ snippet dropdownmenu
 	      %a{:tabindex => "-1", :href => "#"} ${4:Separated link}
 
 snippet form
-	%form
-	  %fieldset
-	    %legend ${1:Legend}
-	    %label ${2:Label name}
-	    %input{:type => "text", :placeholder => "${3:Type something…}"}
-	    %span.help-block ${4:Example block-level help text here.}
-	    %label.checkbox
-	      %input{:type => "checkbox"} ${5:Check me out}
-	    %button.btn{:type => "submit"} ${6:Submit}
-	  
+	%form{:role => "form"}
+	  .form-group
+		%label{:for => "exampleInputEmail1"} Email address
+		%input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email"}/
+	  .form-group
+		%label{:for => "exampleInputPassword1"} Password
+		%input#exampleInputPassword1.form-control{:placeholder => "Password", :type => "password"}/
+	  .form-group
+		%label{:for => "exampleInputFile"} File input
+		%input#exampleInputFile{:type => "file"}/
+		%p.help-block Example block-level help text here.
+	  .checkbox
+		%label
+		  %input{:type => "checkbox"}/
+		  Check me out
+	  %button.btn.btn-default{:type => "submit"} Submit
 
 
 snippet formactions
@@ -229,33 +236,44 @@ snippet formactions
 	  %button.btn{:type => "button"} ${2:Cancel}
 
 snippet formhorizontal
-	%form.form-horizontal
-	  .control-group
-	    %label.control-label{:for => "inputEmail"} Email
-	    .controls
-	      %input#inputEmail{:type => "text", :placeholder => "Email"}
-	  .control-group
-	    %label.control-label{:for => "inputPassword"} Password
-	    .controls
-	      %input#inputPassword{:type => "password", :placeholder => "Password"}
-	  .control-group
-	    .controls
-	      %label.checkbox
-	        %input{:type => "checkbox"} Remember me
-	      %button.btn{:type => "submit"} Sign in
+	%form.form-horizontal{:role => "form"}
+	  .form-group
+		%label.col-sm-2.control-label{:for => "inputEmail3"} Email
+		.col-sm-10
+		  %input#inputEmail3.form-control{:placeholder => "Email", :type => "email"}/
+	  .form-group
+		%label.col-sm-2.control-label{:for => "inputPassword3"} Password
+		.col-sm-10
+		  %input#inputPassword3.form-control{:placeholder => "Password", :type => "password"}/
+	  .form-group
+		.col-sm-offset-2.col-sm-10
+		  .checkbox
+			%label
+			  %input{:type => "checkbox"}/
+			  Remember me
+	  .form-group
+		.col-sm-offset-2.col-sm-10
+		  %button.btn.btn-default{:type => "submit"} Sign in
 
 snippet forminline
-	%form.form-inline
-	  %input.input-small{:type => "text", :placeholder => "${1:Email}"}
-	  %input.input-small{:type => "password", :placeholder => "${2:Password}"}
-	  %label.checkbox
-	    %input{:type => "checkbox"} ${3:Remember me}
-	  %button.btn{:type => "submit"} ${4:Sign in}
+	%form.form-inline{:role => "form"}
+	  .form-group
+		%label.sr-only{:for => "exampleInputEmail2"} Email address
+		%input#exampleInputEmail2.form-control{:placeholder => "Enter email", :type => "email"}/
+	  .form-group
+		.input-group
+		  .input-group-addon @
+		  %input.form-control{:placeholder => "Enter email", :type => "email"}/
+	  .form-group
+		%label.sr-only{:for => "exampleInputPassword2"} Password
+		%input#exampleInputPassword2.form-control{:placeholder => "Password", :type => "password"}/
+	  .checkbox
+		%label
+		  %input{:type => "checkbox"}/
+		  Remember me
+	  %button.btn.btn-default{:type => "submit"} Sign in
 
-snippet formsearch
-	%form.form-search
-	  %input.input-medium.search-query{:type => "text"}
-	  %button.btn{:type => "submit"} ${1:Search}
+
 
 snippet helpblock
 	%span.help-block ${1:A longer block of help text that breaks onto a new line and may extend beyond one line.}
@@ -263,8 +281,8 @@ snippet helpblock
 snippet helpinline
 	%span.help-inline ${1:Inline help text}
 
-snippet herounit
-	.hero-unit
+snippet jumbotron
+	.jumbotron
 	  %h1 ${1:Heading}
 	  %p ${2:Tagline}
 	  %p
@@ -273,16 +291,13 @@ snippet herounit
 
 
 snippet icon
-	%i.icon-${1:search}
-
-snippet iconwhite
-	%i.icon-${1:search}.icon-white
+	%span.glyphicon.glyphicon-search
 
 snippet imgcircle
-	%img.img-circle{:src => "${1:...}"}
+	%img.img-responsive.img-circle{:src => "${1:...}"}
 
 snippet imgpolaroid
-	%img.img-polaroid{:src => "${1:...}"}
+	%img.img-responsive.img-polaroid{:src => "${1:...}"}
 
 snippet imgrounded
 	%img.img-rounded{:src => "${1:...}"}
@@ -295,27 +310,36 @@ snippet inline
 	  %li ${1:...}
 
 snippet input-small
-	%input.input-small{:type => "text"}
+	%input.form-control.input-sm{:type => "text"}
 
 snippet inputappend
-	.input-append
-	  %input#appendedInput.span2{:type => "text"}
-	  %span.add-on ${1:.00}
+	.input-group
+	  %span.input-group-addon @
+	  %input.form-control{:placeholder => "Username", :type => "text"}
 
 snippet inputappendbtn
-	.input-append
-	  %input#appendedInputButton.span2{:type => "text"}
-	  %button.btn{:type => "button"} ${1:Go!}
+	.input-group
+	  %input.form-control{:type => "text"}/
+	  %span.input-group-btn
+		%button.btn.btn-default{:type => "button"} Go!
 
 snippet inputappendbtndropdown
-	.input-append
-	  %input#appendedDropdownButton.span2{:type => "text"}
-	  .btn-group
-	    %button.btn.dropdown-toggle{'data-toggle' => "dropdown"}
-	      ${1:Action}
-	      %span.caret
-	    %ul.dropdown-menu
-	      ${2:...}
+	.input-group
+	  %input.form-control{:type => "text"}/
+	  .input-group-btn
+		%button.btn.btn-default.dropdown-toggle{"data-toggle" => "dropdown", :type => "button"}
+		  Action
+		  %span.caret
+		%ul.dropdown-menu.dropdown-menu-right{:role => "menu"}
+		  %li
+			%a{:href => "#"} Action
+		  %li
+			%a{:href => "#"} Another action
+		  %li
+			%a{:href => "#"} Something else here
+		  %li.divider
+		  %li
+			%a{:href => "#"} Separated link
 
 snippet inputblocklevel
 	%input.input-block-level{:type => "text"}
@@ -397,16 +421,40 @@ snippet muted
 	%p.muted ${1:Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.}
 
 snippet navbar
-	.navbar
-	  .navbar-inner
-	    %a.brand{:href => "#"} ${1:Title}
-	    %ul.nav
-	      %li.active
-	        %a{:href => "#"} ${2:Home}
-	      %li
-	        %a{:href => "#"} ${3:Link}
-	      %li
-	        %a{:href => "#"} ${4:Link}
+	%nav.navbar.navbar-default{:role => "navigation"}
+	  .container-fluid
+	  / Brand and toggle get grouped for better mobile display
+	  .navbar-header
+		%button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+		  %span.sr-only Toggle navigation
+		  %span.icon-bar
+		  %span.icon-bar
+		  %span.icon-bar
+		%a.navbar-brand{:href => "#"} Brand
+	  / Collect the nav links, forms, and other content for toggling
+	  #bs-example-navbar-collapse-1.collapse.navbar-collapse
+		%ul.nav.navbar-nav
+		  %li.active
+			%a{:href => "#"} Link
+		  %li
+			%a{:href => "#"} Link
+		  %li.dropdown
+			%a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+			  Dropdown
+			  %span.caret
+			%ul.dropdown-menu{:role => "menu"}
+			  %li
+				%a{:href => "#"} Action
+			  %li
+				%a{:href => "#"} Another action
+			  %li
+				%a{:href => "#"} Something else here
+			  %li.divider
+			  %li
+				%a{:href => "#"} Separated link
+			  %li.divider
+			  %li
+				%a{:href => "#"} One more separated link
 
 snippet navbarcollapse
 	.navbar
@@ -650,8 +698,13 @@ snippet tabbabletabsright
 	    ${2:...}
 
 snippet table
-	%table.table
-	  ${1:...}
+	%table.table.table-bordered.table-hover
+	  %thead
+		%tr
+		  %th
+	  %tbody
+		%tr
+		  %td
 
 snippet tablebordered
 	%table.table.table-bordered
